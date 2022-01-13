@@ -19,6 +19,7 @@ namespace FictionalCustomer.WebApp.Data
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var configuration = serviceProvider.GetRequiredService<IConfiguration>();
 
+                
                 //context.Database.EnsureCreated();
                 //context.Database.Migrate();
                 CreateAdminUser(userManager, roleManager, configuration);
