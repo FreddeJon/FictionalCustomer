@@ -12,6 +12,7 @@ namespace FictionalCustomer.WebApp.Data
             : base(options)
         {
         }
+        public DbSet<FictionalCustomer.Core.Entitites.Employee> Employee { get; set; }
 
 
 

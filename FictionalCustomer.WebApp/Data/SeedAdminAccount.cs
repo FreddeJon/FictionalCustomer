@@ -28,7 +28,8 @@ namespace FictionalCustomer.WebApp.Data
 
         private static void CreateAdminUser(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
-            var role = "Admin";
+            var adminRoleName = "Admin";
+            var userRoleName = "User";
             var adminUserName = configuration?["AdminInfo:ADMINUSER"];
             var adminPassword = configuration?["AdminInfo:ADMINPASSWORD"];
             if (string.IsNullOrWhiteSpace(adminUserName) || string.IsNullOrWhiteSpace(adminPassword))
@@ -36,11 +37,18 @@ namespace FictionalCustomer.WebApp.Data
                 throw new ArgumentNullException(adminUserName, adminPassword);
             }
 
-            bool foundRole = roleManager.RoleExistsAsync(role).Result;
+            bool foundRole = roleManager.RoleExistsAsync(adminRoleName).Result;
 
             if (!foundRole)
             {
-                var adminRole = roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+                 _ = roleManager.CreateAsync(new IdentityRole(adminRoleName)).GetAwaiter().GetResult();
+            }
+
+            foundRole = roleManager.RoleExistsAsync(userRoleName).Result;
+
+            if (!foundRole)
+            {
+
             }
 
             var adminUser = userManager.FindByNameAsync(adminUserName).Result;
@@ -57,7 +65,7 @@ namespace FictionalCustomer.WebApp.Data
                 {
                     var confirmationToken = userManager.GenerateEmailConfirmationTokenAsync(adminUser).Result;
                     _ = userManager.ConfirmEmailAsync(adminUser, confirmationToken).Result;
-                    _ = userManager.AddToRoleAsync(adminUser, role).Result;
+                    _ = userManager.AddToRoleAsync(adminUser, adminRoleName).Result;
                 }
             }
         }

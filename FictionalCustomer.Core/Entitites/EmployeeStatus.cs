@@ -4,8 +4,8 @@ namespace FictionalCustomer.Core.Entitites
 {
     public enum EmployeeStatus
     {
-        [Display(Name = "Employee")]
-        Employee,
+        [Display(Name = "Employeed")]
+        Employeed,
         [Display(Name = "On Vacation")]
         OnVacation,
         [Display(Name = "Former Employee")]
