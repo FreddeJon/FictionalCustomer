@@ -9,18 +9,18 @@ using Microsoft.EntityFrameworkCore;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
 
-namespace FictionalCustomer.WebApp.Pages.Admin.Employees
+namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 {
     public class DetailsModel : PageModel
     {
-        private readonly FictionalCustomer.WebApp.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public DetailsModel(FictionalCustomer.WebApp.Data.ApplicationDbContext context)
+        public DetailsModel(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public Employee Employee { get; set; }
+        public Project Project { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -29,9 +29,9 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Employees
                 return NotFound();
             }
 
-            Employee = await _context.Employees.FirstOrDefaultAsync(m => m.Id == id);
+            Project = await _context.Projects.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Employee == null)
+            if (Project == null)
             {
                 return NotFound();
             }

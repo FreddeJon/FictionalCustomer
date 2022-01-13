@@ -1,9 +1,9 @@
 ﻿@page
 @model FictionalCustomer.WebApp.Pages.Admin.Employees.CreateModel
-
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Admin - Create Employee";
 }
+
 
 <h1>Create</h1>
 
@@ -24,9 +24,19 @@
                 <span asp-validation-for="Employee.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Employee.EmployeeType" class="control-label"></label>
+                <select asp-for="Employee.EmployeeType" class="form-control" asp-items="Html.GetEnumSelectList<Core.Entitites.EmployeeType>()" data-size="5" title="Choose a stack..."></select>
+                <span asp-validation-for="Employee.EmployeeType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Employee.SSN" class="control-label"></label>
                 <input asp-for="Employee.SSN" class="form-control" />
                 <span asp-validation-for="Employee.SSN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Employee.Email" class="control-label"></label>
+                <input asp-for="Employee.Email" class="form-control" />
+                <span asp-validation-for="Employee.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.PhoneNumber" class="control-label"></label>
@@ -39,23 +49,16 @@
                 <span asp-validation-for="Employee.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.Address" class="control-label"></label>
-                <input asp-for="Employee.Address" class="form-control" />
-                <span asp-validation-for="Employee.Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="Employee.City" class="control-label"></label>
                 <input asp-for="Employee.City" class="form-control" />
                 <span asp-validation-for="Employee.City" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.EmployeeType" class="control-label"></label>
-                <select asp-for="Employee.EmployeeType" class="form-control" asp-items="Html.GetEnumSelectList<Core.Entitites.EmployeeType>()" data-live-search="true" data-size="5" title="Choose a stack..."></select>
-                <span asp-validation-for="Employee.EmployeeType" class="text-danger"></span>
+                <label asp-for="Employee.Street" class="control-label"></label>
+                <input asp-for="Employee.Street" class="form-control" />
+                <span asp-validation-for="Employee.Street" class="text-danger"></span>
             </div>
-
-
-            <div class="form-group">
+            <div class="form-group" style="margin-top: 15px;">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
@@ -67,7 +70,7 @@
 </div>
 
 @section Scripts {
-    
+
 
     @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");

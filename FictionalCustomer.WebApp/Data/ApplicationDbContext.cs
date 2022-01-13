@@ -8,11 +8,13 @@ namespace FictionalCustomer.WebApp.Data
     {
 
         public DbSet<Project>? Projects { get; set; }
+        public DbSet<Employee>? Employees { get; set; }
+
+
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
         }
-        public DbSet<FictionalCustomer.Core.Entitites.Employee> Employee { get; set; }
 
 
 

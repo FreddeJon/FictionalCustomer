@@ -9,13 +9,13 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
 
-namespace FictionalCustomer.WebApp.Pages.Admin.Employees
+namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 {
     public class CreateModel : PageModel
     {
-        private readonly FictionalCustomer.WebApp.Data.ApplicationDbContext _context;
+        private readonly ApplicationDbContext _context;
 
-        public CreateModel(FictionalCustomer.WebApp.Data.ApplicationDbContext context)
+        public CreateModel(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -26,7 +26,7 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Employees
         }
 
         [BindProperty]
-        public Employee Employee { get; set; }
+        public Project Project { get; set; }
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
@@ -35,8 +35,8 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Employees
             {
                 return Page();
             }
-            Employee.EmployeeStatus = EmployeeStatus.Employeed;
-            _context.Employees.Add(Employee);
+
+            _context.Projects.Add(Project);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

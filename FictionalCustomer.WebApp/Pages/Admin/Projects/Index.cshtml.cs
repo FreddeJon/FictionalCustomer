@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
 
-namespace FictionalCustomer.WebApp.Pages.Admin.Employees
+namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 {
     public class IndexModel : PageModel
     {
@@ -20,11 +20,11 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Employees
             _context = context;
         }
 
-        public IList<Employee> Employee { get;set; }
+        public IList<Project> Project { get;set; }
 
         public async Task OnGetAsync()
         {
-            Employee = await _context.Employees.ToListAsync();
+            Project = await _context.Projects.ToListAsync();
         }
     }
 }
