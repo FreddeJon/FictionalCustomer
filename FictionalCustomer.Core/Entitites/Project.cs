@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace FictionalCustomer.Core.Entitites
 {
+    [Table("Projects")]
     public class Project
     {
 
@@ -17,7 +19,18 @@ namespace FictionalCustomer.Core.Entitites
         [Display(Name = "Project")]
         public string? ProjectName { get; set; }
 
-       
+
+        [Display(Name ="Project Description")]
+        [Column(TypeName = "ntext")]
+        public string? ProjectDescription { get; set; }
+
+        [Display(Name ="Customer / Company")]
+        public string? Company { get; set; }
+
+        [Display(Name ="Budget")]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal ProjectBudget { get; set; }
+
         [Display(Name = "Status")]
         public ProjectStatus ProjectStatus { get; set; }
 

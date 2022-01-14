@@ -11,27 +11,19 @@ namespace FictionalCustomer.WebApp.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class EmployeesController : ControllerBase
+    public class DataController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
 
-        public EmployeesController(ApplicationDbContext context, IMapper mapper)
+        public DataController(ApplicationDbContext context, IMapper mapper)
         {
             _context = context ?? throw new ArgumentNullException();
             _mapper = mapper ?? throw new ArgumentNullException();
         }
 
         [HttpGet]
-        [Route("/admin/api/employees")]
-        public async Task<ActionResult<List<Employee>>> GetAll()
-        {
-            var emplyeesUnMapped = await _context!.Employees!.ToListAsync();
-            return emplyeesUnMapped;
-        }
-
-        [HttpGet]
-        [Route("user")]
+        [Route("employees")]
         public async Task<ActionResult<DataTablesResponse>> GetEmployees()
         {
             try
@@ -57,6 +49,36 @@ namespace FictionalCustomer.WebApp.Controllers
 
 
         }
+
+        [HttpGet]
+        [Route("projects")]
+        public async Task<ActionResult<DataTablesResponse>> GetProjects()
+        {
+            try
+            {
+                var projectsUnMapped = await _context!.Projects!.ToListAsync();
+
+                var projectsMapped = _mapper.Map<List<ProjectModel>>(projectsUnMapped);
+
+                var response = new DataTablesResponse
+                {
+                    RecordsTotal = projectsMapped.Count,
+                    RecordsFiltered = 10,
+                    Data = projectsMapped.ToArray()
+                };
+
+                return Ok(response);
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong with the server");
+            }
+
+
+        }
+
+
 
     }
 }

@@ -35,6 +35,9 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     ProjectName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectDescription = table.Column<string>(type: "ntext", nullable: true),
+                    Company = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ProjectBudget = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     ProjectStatus = table.Column<int>(type: "int", nullable: false),
                     StartDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false)

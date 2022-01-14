@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FictionalCustomer.WebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220114140446_Initial")]
+    [Migration("20220114200944_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -83,8 +83,17 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Company")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ProjectBudget")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProjectDescription")
+                        .HasColumnType("ntext");
 
                     b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");

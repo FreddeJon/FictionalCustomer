@@ -42,11 +42,14 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
                 return Page();
             }
 
+            ProjectMemberIds.ForEach(e =>  Project.ProjectMembers.Add(_context.Employees.Find(e)));
+
             _context.Projects.Add(Project);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }
+
 
         private void GetEmployees()
         {

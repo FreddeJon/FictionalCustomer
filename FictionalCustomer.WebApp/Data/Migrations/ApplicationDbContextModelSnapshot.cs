@@ -81,8 +81,17 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<string>("Company")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("EndDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("ProjectBudget")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("ProjectDescription")
+                        .HasColumnType("ntext");
 
                     b.Property<string>("ProjectName")
                         .HasColumnType("nvarchar(max)");
