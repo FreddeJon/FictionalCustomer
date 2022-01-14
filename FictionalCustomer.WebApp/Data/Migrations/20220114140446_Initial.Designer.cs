@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FictionalCustomer.WebApp.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20220113194814_Initial")]
+    [Migration("20220114140446_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -54,9 +54,6 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                     b.Property<int>("EmployeeStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("EmployeeType")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -68,6 +65,9 @@ namespace FictionalCustomer.WebApp.Data.Migrations
 
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StackType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");

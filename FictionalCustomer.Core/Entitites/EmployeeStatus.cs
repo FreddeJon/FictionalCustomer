@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace FictionalCustomer.Core.Entitites
 {
@@ -7,7 +8,7 @@ namespace FictionalCustomer.Core.Entitites
         [Display(Name = "Employeed")]
         Employeed,
         [Display(Name = "On Vacation")]
-        OnVacation,
+        Vacation,
         [Display(Name = "Former Employee")]
         FormerEmployee
     }

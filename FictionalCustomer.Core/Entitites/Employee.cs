@@ -21,6 +21,7 @@ namespace FictionalCustomer.Core.Entitites
         [Display(Name = "Last Name")]
         public string? LastName { get; set; }
 
+
         [Display(Name = "Social Security Number (SSN)")]
         public string? SSN { get; set; }
         
@@ -39,14 +40,12 @@ namespace FictionalCustomer.Core.Entitites
         public string? Street { get; set; }   
 
         [Display(Name = "Stack")]
-        public EmployeeType EmployeeType { get; set; }
+        public StackType StackType { get; set; }
 
         [Display(Name = "Status")]
         public EmployeeStatus EmployeeStatus { get; set; }
 
         public IList<Project>? Projects { get; set; }
 
-
-        public string GetName() => $"{FirstName} {LastName}";
     }
 }

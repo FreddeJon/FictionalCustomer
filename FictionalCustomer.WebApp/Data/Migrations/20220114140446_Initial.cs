@@ -17,11 +17,11 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     City = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Street = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    EmployeeType = table.Column<int>(type: "int", nullable: false),
+                    StackType = table.Column<int>(type: "int", nullable: false),
                     EmployeeStatus = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

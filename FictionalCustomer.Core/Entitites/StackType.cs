@@ -2,7 +2,7 @@
 
 namespace FictionalCustomer.Core.Entitites
 {
-    public enum EmployeeType
+    public enum StackType
     {
         [Display(Name = "Back-End Developer")]
         BackEnd,

@@ -52,9 +52,6 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                     b.Property<int>("EmployeeStatus")
                         .HasColumnType("int");
 
-                    b.Property<int>("EmployeeType")
-                        .HasColumnType("int");
-
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
@@ -66,6 +63,9 @@ namespace FictionalCustomer.WebApp.Data.Migrations
 
                     b.Property<string>("SSN")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("StackType")
+                        .HasColumnType("int");
 
                     b.Property<string>("Street")
                         .HasColumnType("nvarchar(max)");

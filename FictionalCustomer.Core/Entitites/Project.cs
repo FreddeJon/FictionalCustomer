@@ -14,7 +14,6 @@ namespace FictionalCustomer.Core.Entitites
         public Guid Id { get; set; }
 
 
-
         [Display(Name = "Project")]
         public string? ProjectName { get; set; }
 

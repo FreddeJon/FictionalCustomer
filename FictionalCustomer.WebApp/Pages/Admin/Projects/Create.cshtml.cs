@@ -15,6 +15,7 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
     {
         private readonly ApplicationDbContext _context;
 
+
         public CreateModel(ApplicationDbContext context)
         {
             _context = context;
@@ -22,17 +23,22 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 
         public IActionResult OnGet()
         {
+            GetEmployees();
             return Page();
         }
 
         [BindProperty]
         public Project Project { get; set; }
 
+        [BindProperty]
+        public List<Guid> ProjectMemberIds { get; set; }
+
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
+                GetEmployees();
                 return Page();
             }
 
@@ -40,6 +46,16 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
+        }
+
+        private void GetEmployees()
+        {
+            var employees = _context.Employees.OrderBy(e => e.FirstName).Select(s => new
+            {
+                EmployeeId = s.Id,
+                EmployeeName = $"{s.FirstName} {s.LastName} ({s.StackType})"
+            }).ToList();
+            ViewData["Employees"] = new MultiSelectList(employees, "EmployeeId", "EmployeeName");
         }
     }
 }

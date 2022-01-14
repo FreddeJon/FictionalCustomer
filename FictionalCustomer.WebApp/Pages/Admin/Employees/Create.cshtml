@@ -24,9 +24,9 @@
                 <span asp-validation-for="Employee.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Employee.EmployeeType" class="control-label"></label>
-                <select asp-for="Employee.EmployeeType" class="form-control" asp-items="Html.GetEnumSelectList<Core.Entitites.EmployeeType>()" data-size="5" title="Choose a stack..."></select>
-                <span asp-validation-for="Employee.EmployeeType" class="text-danger"></span>
+                <label asp-for="Employee.StackType" class="control-label"></label>
+                <select asp-for="Employee.StackType" class="form-control" asp-items="Html.GetEnumSelectList<Core.Entitites.StackType>()" data-size="5" title="Choose a stack..."></select>
+                <span asp-validation-for="Employee.StackType" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.SSN" class="control-label"></label>
@@ -42,11 +42,6 @@
                 <label asp-for="Employee.PhoneNumber" class="control-label"></label>
                 <input asp-for="Employee.PhoneNumber" class="form-control" />
                 <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Employee.Email" class="control-label"></label>
-                <input asp-for="Employee.Email" class="form-control" />
-                <span asp-validation-for="Employee.Email" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Employee.City" class="control-label"></label>
