@@ -13,47 +13,66 @@
     <h4>Project</h4>
     <hr />
     <div class="row">
-        <div class="col-md-4">
-            <form method="post">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Project.Id" />
-                <div class="form-group">
-                    <label asp-for="Project.ProjectName" class="control-label"></label>
-                    <input asp-for="Project.ProjectName" class="form-control" />
-                    <span asp-validation-for="Project.ProjectName" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Project.ProjectStatus" class="control-label"></label>
-                    <select asp-for="Project.ProjectStatus" class="form-control"></select>
-                    <span asp-validation-for="Project.ProjectStatus" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Project.StartDate" class="control-label"></label>
-                    <input asp-for="Project.StartDate" class="form-control" />
-                    <span asp-validation-for="Project.StartDate" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Project.EndDate" class="control-label"></label>
-                    <input asp-for="Project.EndDate" class="form-control" />
-                    <span asp-validation-for="Project.EndDate" class="text-danger"></span>
-                </div>
-                <div style="display:flex; justify-content: space-between; align-content:center;">
-                    <a style="margin-top:10px;display:inline-block;" asp-page="./Index">
-                        Back
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" style="padding-bottom:5px;" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
-                        </svg>
-                    </a>
-                    <div class="form-group" style="align-self:center; margin-top:5px;">
-                        <input type="submit" value="Save" class="btn btn-primary" />
+        <form method="post">
+            <div class="col-md-4">
+                <div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Project.Id" />
+                    <div class="form-group">
+                        <label asp-for="Project.Company" class="control-label"></label>
+                        <input asp-for="Project.Company" class="form-control" />
+                        <span asp-validation-for="Project.Company" class="text-danger"></span>
                     </div>
+                    <div class="form-group">
+                        <label asp-for="Project.ProjectName" class="control-label"></label>
+                        <input asp-for="Project.ProjectName" class="form-control" />
+                        <span asp-validation-for="Project.ProjectName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.ProjectDescription"></label>
+                        <textarea asp-for="Project.ProjectDescription" class="form-control" text-wrap:normal" type="text" placeholder="Please add project description here (optional)"></textarea>
+                        <span asp-validation-for="Project.ProjectDescription" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.ProjectStatus" class="control-label"></label>
+                        <select asp-for="Project.ProjectStatus" class="form-control" asp-items="@Html.GetEnumSelectList<Core.Entitites.ProjectStatus>()"></select>
+                        <span asp-validation-for="Project.ProjectStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.ProjectBudget" class="control-label"></label>
+                        <input asp-for="Project.ProjectBudget" class="form-control" type="number/>
+                        <span asp-validation-for="Project.ProjectBudget" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.ProjectMembers" class="control-label"></label>
+                        <select asp-for="ProjectMemberIds" class="form-control" asp-items="ViewBag.Employees" data-allow-clear="true" data-live-search="true" data-max-options="5" data-size="5" title="Choose Members..."></select>
+                        <span asp-validation-for="ProjectMemberIds" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.StartDate" class="control-label"></label>
+                        <input asp-for="Project.StartDate" class="form-control" />
+                        <span asp-validation-for="Project.StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Project.EndDate" class="control-label"></label>
+                        <input asp-for="Project.EndDate" class="form-control" />
+                        <span asp-validation-for="Project.EndDate" class="text-danger"></span>
+                    </div>
+                    <div style="display:flex; justify-content: space-between; align-content:center;">
+                        <a style="margin-top:10px;display:inline-block;" asp-page="./Index">
+                            Back
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" style="padding-bottom:5px;" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+                            </svg>
+                        </a>
+                        <div class="form-group" style="align-self:center; margin-top:5px;">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </div>
+
                 </div>
-            </form>
-        </div>
+
+            </div>
+        </form>
     </div>
 </div>
-@section Scripts {
-    @{
-    await Html.RenderPartialAsync("_ValidationScriptsPartial");
-}
-}

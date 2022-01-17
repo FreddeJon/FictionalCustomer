@@ -16,7 +16,5 @@ namespace FictionalCustomer.WebApp.Data
         {
         }
 
-
-
     }
 }

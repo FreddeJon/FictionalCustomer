@@ -192,7 +192,7 @@ $(function () {
             { "data": "projectBudget" },
             { "data": "startDate" },
             { "data": "endDate" },
-            { "data": "endDate" },
+            { "data": "projectStatus" },
             {
                 "render": function (data, type, full, meta) {
                     return '<div class="buttons-actions"> <a class="" href="/Admin/Projects/Details?id=' + full.id + '"><i class="bi bi-info-circle"></i></a>' +
@@ -202,5 +202,30 @@ $(function () {
                 }
             }
         ]
+    });
+});
+
+
+
+
+$(document).ready(function () {
+    $(document).on('change', '#heyo', function () {
+        var note = $(this).find('option').first(),// the '--Select--' option
+            selected = $(this).find('option:selected'),
+            rest = $(this).find('option:not(:first-of-type):not(:selected)');
+
+        var sorter = (a, b) => {
+            let aName = a.innerText.toLowerCase(),
+                bName = b.innerText.toLowerCase();
+            return ((aName < bName) ? -1 : ((aName > bName) ? 1 : 0));
+        };
+
+        $(this)
+            // adding '--Select--' 
+            .html(note)
+            // appending selected options sorted in alphabetical order
+            .append(selected.sort(sorter))
+            // adding the rest of the options sorted too
+            .append(rest.sort(sorter));
     });
 });

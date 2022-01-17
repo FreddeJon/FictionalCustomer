@@ -9,9 +9,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Employees
 {
+    [Authorize(Roles = "Admin")]
     public class EditModel : PageModel
     {
         private readonly ApplicationDbContext _context;

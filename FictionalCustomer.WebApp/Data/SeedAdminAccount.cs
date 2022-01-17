@@ -41,14 +41,14 @@ namespace FictionalCustomer.WebApp.Data
 
             if (!foundRole)
             {
-                 _ = roleManager.CreateAsync(new IdentityRole(adminRoleName)).GetAwaiter().GetResult();
+                 roleManager.CreateAsync(new IdentityRole(adminRoleName)).GetAwaiter().GetResult();
             }
 
             foundRole = roleManager.RoleExistsAsync(userRoleName).Result;
 
             if (!foundRole)
             {
-
+                roleManager.CreateAsync(new IdentityRole(userRoleName)).GetAwaiter().GetResult();
             }
 
             var adminUser = userManager.FindByNameAsync(adminUserName).Result;

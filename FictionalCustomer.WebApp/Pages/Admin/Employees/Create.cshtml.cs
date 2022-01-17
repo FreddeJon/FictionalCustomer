@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Employees
 {
+    [Authorize(Roles = "Admin")]
     public class CreateModel : PageModel
     {
         private readonly FictionalCustomer.WebApp.Data.ApplicationDbContext _context;

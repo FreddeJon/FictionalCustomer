@@ -31,6 +31,8 @@ builder.Services.AddAutoMapper(am =>
 {
     am.AddProfile<MapProfile>();
 });
+
+builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 //

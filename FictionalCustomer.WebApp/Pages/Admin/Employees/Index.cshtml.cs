@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Employees
 {
+    [Authorize(Roles = "Admin")]
     public class IndexModel : PageModel
     {
         private readonly ApplicationDbContext _context;

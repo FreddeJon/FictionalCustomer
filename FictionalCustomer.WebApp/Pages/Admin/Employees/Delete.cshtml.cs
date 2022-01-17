@@ -8,9 +8,11 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Employees
 {
+    [Authorize(Roles = "Admin")]
     public class DeleteModel : PageModel
     {
         private readonly FictionalCustomer.WebApp.Data.ApplicationDbContext _context;
