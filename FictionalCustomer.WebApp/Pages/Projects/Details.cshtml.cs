@@ -29,7 +29,7 @@ namespace FictionalCustomer.WebApp.Pages.Projects
                 return NotFound();
             }
 
-            Project = await _context.Projects.FirstOrDefaultAsync(m => m.Id == id);
+            Project = await _context.Projects.Include(p => p.ProjectMembers).FirstOrDefaultAsync(m => m.Id == id);
 
             if (Project == null)
             {

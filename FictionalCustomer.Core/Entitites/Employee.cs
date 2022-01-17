@@ -47,5 +47,6 @@ namespace FictionalCustomer.Core.Entitites
 
         public IList<Project>? Projects { get; set; }
 
+        public string GetFullName() => $"{FirstName} {LastName} ({StackType})";
     }
 }

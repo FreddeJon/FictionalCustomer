@@ -45,6 +45,9 @@ namespace FictionalCustomer.Core.Entitites
 
         [Display(Name = "Project Members")]
         public IList<Employee>? ProjectMembers { get; set; }
+
+
+        public string GetProjectInfo() => $"{ProjectName}, Status: {ProjectStatus}, Start: {StartDate}, End: {EndDate}";
     }
 }
 
