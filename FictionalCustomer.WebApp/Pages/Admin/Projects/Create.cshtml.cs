@@ -1,14 +1,10 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 {
@@ -44,7 +40,7 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
                 return Page();
             }
 
-            ProjectMemberIds.ForEach(e =>  Project.ProjectMembers.Add(_context.Employees.Find(e)));
+            ProjectMemberIds.ForEach(e => Project.ProjectMembers.Add(_context.Employees.Find(e)));
 
             _context.Projects.Add(Project);
             await _context.SaveChangesAsync();

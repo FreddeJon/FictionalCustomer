@@ -2,7 +2,7 @@
 @model FictionalCustomer.WebApp.Pages.Admin.Projects.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Admin | Projects | Create";
 }
 <div class="website-background">
     <div class="dashboard-center">
@@ -47,7 +47,7 @@
                 <div class="form-group">
                     <label asp-for="Project.EndDate" class="control-label"></label>
                     <input asp-for="Project.EndDate" class="form-control" />
-                    <span asp-validation-for="Project.EndDate" class="text-danger"></span>
+                    <span asp-validation-for="Project.EndDate" class="text-danger"-pan></span>
                 </div>
                 <div style="display:flex; justify-content: space-between; align-content:center;">
                     <a style="margin-top:10px;display:inline-block;" asp-page="./Index">

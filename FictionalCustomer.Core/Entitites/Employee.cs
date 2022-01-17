@@ -24,7 +24,7 @@ namespace FictionalCustomer.Core.Entitites
 
         [Display(Name = "Social Security Number (SSN)")]
         public string? SSN { get; set; }
-        
+
         [Display(Name = "Email Address")]
         public string? Email { get; set; }
 
@@ -37,7 +37,7 @@ namespace FictionalCustomer.Core.Entitites
         public string? City { get; set; }
 
         [Display(Name = "Street Address (Optional)")]
-        public string? Street { get; set; }   
+        public string? Street { get; set; }
 
         [Display(Name = "Stack")]
         public StackType StackType { get; set; }

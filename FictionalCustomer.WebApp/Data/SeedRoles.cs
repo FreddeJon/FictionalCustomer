@@ -1,14 +1,9 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace FictionalCustomer.WebApp.Data
 {
-    public class SeedAdminAccount
+    public class SeedRoles
     {
         public static void Initizialize(IServiceProvider serviceProvider)
         {
@@ -19,14 +14,14 @@ namespace FictionalCustomer.WebApp.Data
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
                 var configuration = serviceProvider.GetRequiredService<IConfiguration>();
 
-                
+
                 //context.Database.EnsureCreated();
-                //context.Database.Migrate();
-                CreateAdminUser(userManager, roleManager, configuration);
+                context.Database.Migrate();
+                CreateRoles(userManager, roleManager, configuration);
             }
         }
 
-        private static void CreateAdminUser(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
+        private static void CreateRoles(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager, IConfiguration configuration)
         {
             var adminRoleName = "Admin";
             var userRoleName = "User";
@@ -41,7 +36,7 @@ namespace FictionalCustomer.WebApp.Data
 
             if (!foundRole)
             {
-                 roleManager.CreateAsync(new IdentityRole(adminRoleName)).GetAwaiter().GetResult();
+                roleManager.CreateAsync(new IdentityRole(adminRoleName)).GetAwaiter().GetResult();
             }
 
             foundRole = roleManager.RoleExistsAsync(userRoleName).Result;

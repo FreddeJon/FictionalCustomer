@@ -20,14 +20,14 @@ namespace FictionalCustomer.Core.Entitites
         public string? ProjectName { get; set; }
 
 
-        [Display(Name ="Project Description")]
+        [Display(Name = "Project Description")]
         [Column(TypeName = "ntext")]
         public string? ProjectDescription { get; set; }
 
-        [Display(Name ="Customer / Company")]
+        [Display(Name = "Customer / Company")]
         public string? Company { get; set; }
 
-        [Display(Name ="Budget")]
+        [Display(Name = "Budget")]
         [Column(TypeName = "decimal(18,2)")]
         public decimal ProjectBudget { get; set; }
 
@@ -45,8 +45,6 @@ namespace FictionalCustomer.Core.Entitites
 
         [Display(Name = "Project Members")]
         public IList<Employee>? ProjectMembers { get; set; }
-
     }
-
 }
 

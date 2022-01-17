@@ -1,11 +1,9 @@
 using FictionalCustomer.Core.Validators;
 using FictionalCustomer.WebApp.Data;
+using FictionalCustomer.WebApp.Models.Profiles;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using AutoMapper;
-using FictionalCustomer.WebApp.Models.Profiles;
-using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +34,7 @@ builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 //
-SeedAdminAccount.Initizialize(app.Services);
+SeedRoles.Initizialize(app.Services);
 
 
 // Configure the HTTP request pipeline.

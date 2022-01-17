@@ -10,7 +10,7 @@
 
         public string? PhoneNumber { get; set; }
 
-        public  string? StackType { get; set; }
+        public string? StackType { get; set; }
 
         public string? EmployeeStatus { get; set; }
     }

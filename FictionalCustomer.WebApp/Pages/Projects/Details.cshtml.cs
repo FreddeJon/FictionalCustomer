@@ -1,14 +1,16 @@
 ﻿#nullable disable
-using FictionalCustomer.Core.Entitites;
-using FictionalCustomer.WebApp.Data;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using FictionalCustomer.Core.Entitites;
+using FictionalCustomer.WebApp.Data;
 
-namespace FictionalCustomer.WebApp.Pages.Admin.Projects
+namespace FictionalCustomer.WebApp.Pages.Projects
 {
-    [Authorize(Roles = "Admin")]
     public class DetailsModel : PageModel
     {
         private readonly ApplicationDbContext _context;

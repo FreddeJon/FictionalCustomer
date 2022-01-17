@@ -1,14 +1,16 @@
 ﻿#nullable disable
-using FictionalCustomer.Core.Entitites;
-using FictionalCustomer.WebApp.Data;
-using Microsoft.AspNetCore.Authorization;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using FictionalCustomer.Core.Entitites;
+using FictionalCustomer.WebApp.Data;
 
-namespace FictionalCustomer.WebApp.Pages.Admin.Projects
+namespace FictionalCustomer.WebApp.Pages.Users
 {
-    [Authorize(Roles = "Admin")]
     public class DetailsModel : PageModel
     {
         private readonly ApplicationDbContext _context;
@@ -18,7 +20,7 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
             _context = context;
         }
 
-        public Project Project { get; set; }
+        public Employee Employee { get; set; }
 
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
@@ -27,9 +29,9 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
                 return NotFound();
             }
 
-            Project = await _context.Projects.FirstOrDefaultAsync(m => m.Id == id);
+            Employee = await _context.Employees.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (Project == null)
+            if (Employee == null)
             {
                 return NotFound();
             }

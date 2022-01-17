@@ -1,11 +1,8 @@
 ﻿using AutoMapper;
-using FictionalCustomer.Core.Entitites;
 using FictionalCustomer.WebApp.Data;
 using FictionalCustomer.WebApp.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq.Dynamic.Core;
 
 namespace FictionalCustomer.WebApp.Controllers
 {
@@ -46,8 +43,6 @@ namespace FictionalCustomer.WebApp.Controllers
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong with the server");
             }
-
-
         }
 
         [HttpGet]
@@ -74,12 +69,7 @@ namespace FictionalCustomer.WebApp.Controllers
 
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong with the server");
             }
-
-
         }
-
-
-
     }
 }
 

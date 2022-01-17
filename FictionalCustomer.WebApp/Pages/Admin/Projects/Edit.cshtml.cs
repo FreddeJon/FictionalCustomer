@@ -1,16 +1,11 @@
 ﻿#nullable disable
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using FictionalCustomer.Core.Entitites;
+using FictionalCustomer.WebApp.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using FictionalCustomer.Core.Entitites;
-using FictionalCustomer.WebApp.Data;
-using Microsoft.Extensions.Configuration;
-using Microsoft.AspNetCore.Authorization;
 
 namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 {
@@ -73,7 +68,7 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
 
             ProjectMemberIds.ForEach(e => projectToUpdate.ProjectMembers.Add(_context.Employees.Find(e)));
 
-         
+
 
 
             try
