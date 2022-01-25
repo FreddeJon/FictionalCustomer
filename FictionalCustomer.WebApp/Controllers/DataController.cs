@@ -15,8 +15,8 @@ namespace FictionalCustomer.WebApp.Controllers
 
         public DataController(ApplicationDbContext context, IMapper mapper)
         {
-            _context = context ?? throw new ArgumentNullException();
-            _mapper = mapper ?? throw new ArgumentNullException();
+            _context = context ?? throw new ArgumentNullException(nameof(context), "Is null");
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper), "Is null");
         }
 
         [HttpGet]
@@ -40,7 +40,6 @@ namespace FictionalCustomer.WebApp.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong with the server");
             }
         }
@@ -66,7 +65,6 @@ namespace FictionalCustomer.WebApp.Controllers
             }
             catch (Exception)
             {
-
                 return StatusCode(StatusCodes.Status500InternalServerError, "Something went wrong with the server");
             }
         }

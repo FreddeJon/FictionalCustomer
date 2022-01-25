@@ -21,22 +21,18 @@ namespace FictionalCustomer.Core.Entitites
         [Display(Name = "Last Name")]
         public string? LastName { get; set; }
 
-
-        [Display(Name = "Social Security Number (SSN)")]
-        public string? SSN { get; set; }
-
         [Display(Name = "Email Address")]
         public string? Email { get; set; }
 
 
-        [Display(Name = "Phone Number (Optional)")]
+        [Display(Name = "Phone Number")]
         public string? PhoneNumber { get; set; }
 
 
-        [Display(Name = "City (Optional)")]
+        [Display(Name = "City")]
         public string? City { get; set; }
 
-        [Display(Name = "Street Address (Optional)")]
+        [Display(Name = "Street Address")]
         public string? Street { get; set; }
 
         [Display(Name = "Stack")]

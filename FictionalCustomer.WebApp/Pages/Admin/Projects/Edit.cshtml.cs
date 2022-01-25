@@ -69,8 +69,6 @@ namespace FictionalCustomer.WebApp.Pages.Admin.Projects
             ProjectMemberIds.ForEach(e => projectToUpdate.ProjectMembers.Add(_context.Employees.Find(e)));
 
 
-
-
             try
             {
                 await _context.SaveChangesAsync();

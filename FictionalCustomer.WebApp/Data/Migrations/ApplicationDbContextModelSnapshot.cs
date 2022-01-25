@@ -61,9 +61,6 @@ namespace FictionalCustomer.WebApp.Data.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("StackType")
                         .HasColumnType("int");
 

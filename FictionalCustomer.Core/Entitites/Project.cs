@@ -20,11 +20,11 @@ namespace FictionalCustomer.Core.Entitites
         public string? ProjectName { get; set; }
 
 
-        [Display(Name = "Project Description")]
+        [Display(Name = "Description")]
         [Column(TypeName = "ntext")]
         public string? ProjectDescription { get; set; }
 
-        [Display(Name = "Customer / Company")]
+        [Display(Name = "Company")]
         public string? Company { get; set; }
 
         [Display(Name = "Budget")]
@@ -47,7 +47,7 @@ namespace FictionalCustomer.Core.Entitites
         public IList<Employee>? ProjectMembers { get; set; }
 
 
-        public string GetProjectInfo() => $"{ProjectName}, Status: {ProjectStatus}, Start: {StartDate}, End: {EndDate}";
+        public string GetProjectInfo() => $"{ProjectName}, Status: {ProjectStatus}, Start: {StartDate:dd,MM,yyyy} End: {EndDate:dd,MM,yyyy}";
     }
 }
 

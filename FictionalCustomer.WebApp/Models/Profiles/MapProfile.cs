@@ -16,7 +16,8 @@ namespace FictionalCustomer.WebApp.Models.Profiles
 
             CreateMap<Project, ProjectModel>()
                 .ForMember(x => x.StartDate, opt => opt.MapFrom(x => x.StartDate.ToString("yyyy-MM-dd")))
-                .ForMember(x => x.EndDate, opt => opt.MapFrom(x => x.EndDate.ToString("yyyy-MM-dd")));
+                .ForMember(x => x.EndDate, opt => opt.MapFrom(x => x.EndDate.ToString("yyyy-MM-dd")))
+                .ForMember(x => x.ProjectBudget, opt => opt.MapFrom(x => $"{x.ProjectBudget}$"));
 
         }
     }
