@@ -1,0 +1,77 @@
+﻿@page
+@model FictionalCustomer.WebApp.Pages.Admin.Employees.CreateModel
+@{
+    ViewData["Title"] = "Admin | Employees | Create";
+}
+<div class="website-background">
+    <div class="dashboard-center">
+        <h6 class="display-6">Admin | Employees | Create</h6>
+    </div>
+
+    <h4>Employee</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Employee.FirstName" class="control-label"></label>
+                    <input asp-for="Employee.FirstName" class="form-control" />
+                    <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.LastName" class="control-label"></label>
+                    <input asp-for="Employee.LastName" class="form-control" />
+                    <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.StackType" class="control-label"></label>
+                    <select asp-for="Employee.StackType" class="form-control" asp-items="Html.GetEnumSelectList<Core.Entitites.StackType>()" data-size="5" title="Choose a stack..."></select>
+                    <span asp-validation-for="Employee.StackType" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.Email" class="control-label"></label>
+                    <input asp-for="Employee.Email" class="form-control" />
+                    <span asp-validation-for="Employee.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.PhoneNumber" class="control-label"></label>
+                    <input asp-for="Employee.PhoneNumber" class="form-control" placeholder="Optional"/>
+                    <span asp-validation-for="Employee.PhoneNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.City" class="control-label"></label>
+                    <input asp-for="Employee.City" class="form-control" placeholder="Optional"/>
+                    <span asp-validation-for="Employee.City" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Employee.Street" class="control-label"></label>
+                    <input asp-for="Employee.Street" class="form-control" placeholder="Optional"/>
+                    <span asp-validation-for="Employee.Street" class="text-danger"></span>
+                </div>
+                <div style="display:flex; justify-content: space-between; align-content:center;">
+                    <a style="margin-top:10px;display:inline-block;" asp-page="./Index">
+                        Back
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" style="padding-bottom:5px;" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+                        </svg>
+                    </a>
+                    <div class="form-group" style="align-self:center; margin-top:5px;">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+@section Scripts {
+
+
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+
+}

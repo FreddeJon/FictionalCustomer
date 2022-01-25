@@ -1,0 +1,92 @@
+﻿@page
+@model FictionalCustomer.WebApp.Pages.Projects.DetailsModel
+
+@{
+    ViewData["Title"] = "Projects | Details";
+}
+
+
+<div class="website-background">
+    <div style="display:flex;justify-content:center;">
+        <h6 style="justify-self:center;" class="display-6">Projects | Details</h6>
+    </div>
+    <h1>Details</h1>
+
+    <div>
+        <h4>Project</h4>
+        <hr />
+        <div style="display:flex;justify-content:space-between;">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.ProjectName)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.ProjectName)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.ProjectDescription)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.ProjectDescription)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.Company)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.Company)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.ProjectBudget)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.ProjectBudget)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.ProjectStatus)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.ProjectStatus)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.StartDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.StartDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.EndDate)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Project.EndDate)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.Project.ProjectMembers)
+                </dt>
+                <dd></dd>
+                <hr />
+                @if (Model.Project.ProjectMembers!.Count > 0)
+                {
+                    @foreach (var member in Model.Project.ProjectMembers!)
+                    {
+                        <dd class="col-sm-10">
+                            @member.GetFullName()
+                            <a asp-page="/Users/Details" asp-route-id="@member.Id"><i class="bi bi-info-circle"></i></a>
+                        </dd>
+                    }
+                }
+                else
+                {
+                    <dd class="col-sm-10">No members assigned</dd>
+                }
+            </dl>
+        </div>
+    </div>
+    <div>
+        <a onclick="history.back()">
+            Back
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="25" fill="currentColor" style="padding-bottom:5px;" class="bi bi-arrow-return-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5z" />
+            </svg>
+        </a>
+    </div>
+</div>

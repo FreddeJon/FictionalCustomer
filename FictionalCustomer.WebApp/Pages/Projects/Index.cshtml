@@ -1,0 +1,30 @@
+﻿@page
+@model FictionalCustomer.WebApp.Pages.Projects.IndexModel
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<div class="website-background">
+    <div style="display:flex;justify-content:center;">
+        <h6 style="justify-self:center;" class="display-6">Projects</h6>
+    </div>
+    <div class="container" style="padding: 0;">
+        <br />
+        <div style="width:100%; margin:0;">
+            <table id="user-projects-datatables" class="table" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Company</th>
+                        <th>Project Title</th>
+                        <th>Project Budget</th>
+                        <th>Start</th>
+                        <th>End</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
